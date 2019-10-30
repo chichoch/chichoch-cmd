@@ -3,7 +3,7 @@ import Help from "../components/Help";
 import { white } from "ansi-colors";
 
 export default function cmdEffect(cmd) {
-  switch (cmd) {
+  switch (cmd.toLowerCase().trim()) {
     case "test":
       return <u>Test</u>;
     case "bourbons":
@@ -14,6 +14,8 @@ export default function cmdEffect(cmd) {
       return <Framed src="https://bkd-make-a-line.netlify.com/" />;
     case "help":
       return <Help />;
+    case "":
+      return <b>You need to write something... ¯\_(ツ)_/¯</b>;
     default:
       return <b>Coulnd't recognize command: {cmd}</b>;
   }
