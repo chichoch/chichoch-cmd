@@ -17,6 +17,9 @@ const Help = () => {
           Bourbons
         </li>
         <li>
+          <Command>make-a-line</Command> - BKD Make-a-line (Made with ELM)
+        </li>
+        <li>
           <Command>clear</Command> - clears the console
         </li>
         <li>

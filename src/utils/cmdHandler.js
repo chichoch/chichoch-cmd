@@ -1,35 +1,33 @@
 import React from "react";
 import Help from "../components/Help";
+import { white } from "ansi-colors";
 
 export default function cmdEffect(cmd) {
   switch (cmd) {
     case "test":
       return <u>Test</u>;
     case "bourbons":
-      return (
-        <iframe
-          title="The Bourbons"
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/Hvem6PD4abY"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      );
+      return <Framed src={"https://www.youtube.com/embed/Hvem6PD4abY"} />;
     case "tåhäv":
-      return (
-        <iframe
-          title="Tåhäv"
-          width="560"
-          height="400"
-          src="https://chichoch.github.io/#/t%C3%A5h%C3%A4v"
-          frameBorder="0"
-        ></iframe>
-      );
+      return <Framed src="https://chichoch.github.io/#/t%C3%A5h%C3%A4v" />;
+    case "make-a-line":
+      return <Framed src="https://bkd-make-a-line.netlify.com/" />;
     case "help":
       return <Help />;
     default:
       return <b>Coulnd't recognize command: {cmd}</b>;
   }
 }
+
+const Framed = props => {
+  return (
+    <iframe
+      style={{ backgroundColor: white }}
+      title={props.src}
+      width="560"
+      height="400"
+      src={props.src}
+      frameBorder="0"
+    ></iframe>
+  );
+};
