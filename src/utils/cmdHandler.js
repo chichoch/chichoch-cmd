@@ -9,9 +9,11 @@ export default function cmdEffect(cmd) {
     case "bourbons":
       return <Framed src={"https://www.youtube.com/embed/Hvem6PD4abY"} />;
     case "tåhäv":
-      return <Framed src="https://chichoch.github.io/#/t%C3%A5h%C3%A4v" />;
+      return <Framed src="https://toehaev.netlify.com/" />;
     case "make-a-line":
       return <Framed src="https://bkd-make-a-line.netlify.com/" />;
+    case "sad-benz":
+      return <Framed src="https://sad-benz-113db0.netlify.com/" />;
     case "help":
       return <Help />;
     case "":

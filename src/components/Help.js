@@ -13,6 +13,10 @@ const Help = () => {
           <Command>tåhäv</Command> - stupid site I made to mock my friend Filip
         </li>
         <li>
+          <Command>sad-benz</Command> - site with the Curb your Enthusiasm-theme
+          and a animated gif
+        </li>
+        <li>
           <Command>bourbons</Command> - see a youtube show with my old band The
           Bourbons
         </li>
