@@ -1,24 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Footer from "./Footer";
 
 function App() {
+  const [commands, setCommands] = useState([]);
+
+  function cmdEffect(cmd) {
+    switch (cmd) {
+      case "test":
+        return <u>Test</u>;
+      case "bourbons":
+        return (
+          <iframe
+            title="The Bourbons"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/Hvem6PD4abY"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        );
+      default:
+        return <b>Coulnd't recognize command: {cmd}</b>;
+    }
+  }
+
+  function handleSubmit(cmd) {
+    setCommands([...commands, cmdEffect(cmd)]);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="content">
+        <h1>Cmd line</h1>
+        {commands.map((x, i) => (
+          <div key={i}>{x}</div>
+        ))}
+      </div>
+      <Footer onSubmit={handleSubmit} />
     </div>
   );
 }
