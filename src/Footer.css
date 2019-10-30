@@ -10,8 +10,11 @@
 }
 
 input[type="text"] {
+  background-color: black;
+  color: greenyellow;
   font-size: 12pt;
-  margin: 8px 4px;
+  font-family: monospace;
+  margin: 4px 4px;
   width: 100%;
   box-sizing: border-box;
 }
