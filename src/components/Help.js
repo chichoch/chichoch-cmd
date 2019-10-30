@@ -28,6 +28,10 @@ const Help = () => {
           game-generator
         </li>
         <li>
+          <Command>fhcg</Command> - a facebook clone ment to serve the beef.
+          Created with React and Firebase.
+        </li>
+        <li>
           <Command>clear</Command> - clears the console
         </li>
         <li>

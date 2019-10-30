@@ -16,6 +16,8 @@ export default function cmdEffect(cmd) {
       return <Framed src="https://sad-benz-113db0.netlify.com/" />;
     case "julklappsleksgenerator":
       return <Framed src="https://julklappsleks-generator.netlify.com" />;
+    case "fhcg":
+      return <Framed src="https://fhcg-clone.netlify.com/" />;
     case "ls":
     case "help":
       return <Help />;
