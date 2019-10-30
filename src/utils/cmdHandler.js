@@ -4,8 +4,6 @@ import { white } from "ansi-colors";
 
 export default function cmdEffect(cmd) {
   switch (cmd.toLowerCase().trim()) {
-    case "test":
-      return <u>Test</u>;
     case "bourbons":
       return <Framed src={"https://www.youtube.com/embed/Hvem6PD4abY"} />;
     case "chris-bourbon":

@@ -7,9 +7,6 @@ const Help = () => {
       To navigate the site, use the following commands:
       <ul>
         <li>
-          <Command>test</Command> - prints out test
-        </li>
-        <li>
           <Command>tåhäv</Command> - stupid site I made to mock my friend Filip
         </li>
         <li>
