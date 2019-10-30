@@ -8,6 +8,8 @@ export default function cmdEffect(cmd) {
       return <u>Test</u>;
     case "bourbons":
       return <Framed src={"https://www.youtube.com/embed/Hvem6PD4abY"} />;
+    case "chris-bourbon":
+      return <ChrisBourbon />;
     case "tåhäv":
       return <Framed src="https://toehaev.netlify.com/" />;
     case "make-a-line":
@@ -36,5 +38,20 @@ const Framed = props => {
       src={props.src}
       frameBorder="0"
     ></iframe>
+  );
+};
+
+const ChrisBourbon = () => {
+  return (
+    <iframe
+      title="Chris Bourbon"
+      style={{ border: "0", width: "350px", height: "470px" }}
+      src="https://bandcamp.com/EmbeddedPlayer/album=1091096158/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/transparent=true/"
+      seamless
+    >
+      <a href="http://chrisbourbon.bandcamp.com/album/introducing">
+        Introducing by Chris Bourbon
+      </a>
+    </iframe>
   );
 };

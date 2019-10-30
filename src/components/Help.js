@@ -21,6 +21,9 @@ const Help = () => {
           Bourbons
         </li>
         <li>
+          <Command>chris-bourbon</Command> - listen to my solo project
+        </li>
+        <li>
           <Command>make-a-line</Command> - BKD Make-a-line (Made with ELM)
         </li>
         <li>
