@@ -24,6 +24,10 @@ const Help = () => {
           <Command>make-a-line</Command> - BKD Make-a-line (Made with ELM)
         </li>
         <li>
+          <Command>julklappsleksgenerator</Command> - christmas gift
+          game-generator
+        </li>
+        <li>
           <Command>clear</Command> - clears the console
         </li>
         <li>
