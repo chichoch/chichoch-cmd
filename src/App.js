@@ -1,42 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Footer from "./Footer";
+import Welcome from "./components/Welcome";
+import cmdEffect from "./utils/cmdHandler";
 
 function App() {
   const [commands, setCommands] = useState([]);
+  const bottomRef = useRef(null);
 
-  function cmdEffect(cmd) {
-    switch (cmd) {
-      case "test":
-        return <u>Test</u>;
-      case "bourbons":
-        return (
-          <iframe
-            title="The Bourbons"
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/Hvem6PD4abY"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        );
-      default:
-        return <b>Coulnd't recognize command: {cmd}</b>;
-    }
+  function scrollToBottom() {
+    bottomRef.current.scrollIntoView({ behaviour: "smooth" });
   }
 
+  useEffect(scrollToBottom, [commands]);
+
   function handleSubmit(cmd) {
-    setCommands([...commands, cmdEffect(cmd)]);
+    if (cmd === "clear") {
+      setCommands([]);
+    } else {
+      setCommands([...commands, cmdEffect(cmd)]);
+    }
   }
 
   return (
     <div>
       <div className="content">
-        <h1>Cmd line</h1>
+        {commands.length < 1 ? <Welcome /> : null}
         {commands.map((x, i) => (
           <div key={i}>{x}</div>
         ))}
+        <div ref={bottomRef} />
       </div>
       <Footer onSubmit={handleSubmit} />
     </div>
