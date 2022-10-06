@@ -37,6 +37,9 @@ const Help = () => {
         <li>
           <Command>help</Command> - shows this
         </li>
+        <li>
+          <Command>contact</Command> - how to contact me
+        </li>
       </ul>
     </div>
   );

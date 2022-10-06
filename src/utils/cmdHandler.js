@@ -1,6 +1,7 @@
 import React from "react";
 import Help from "../components/Help";
 import { white } from "ansi-colors";
+import Contact from "../components/Contact";
 
 export default function cmdEffect(cmd) {
   switch (cmd.toLowerCase().trim()) {
@@ -16,6 +17,8 @@ export default function cmdEffect(cmd) {
       return <Framed src="https://sad-benz-113db0.netlify.com/" />;
     case "julklappsleksgenerator":
       return <Framed src="https://julklappsleks-generator.netlify.com" />;
+    case "contact":
+      return <Contact />;
     case "fhcg":
       return <Framed src="https://fhcg-clone.netlify.com/" />;
     case "ls":
@@ -28,7 +31,7 @@ export default function cmdEffect(cmd) {
   }
 }
 
-const Framed = props => {
+const Framed = (props) => {
   return (
     <iframe
       style={{ backgroundColor: white }}
