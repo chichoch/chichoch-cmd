@@ -14,6 +14,13 @@ const Help = () => {
           and a animated gif
         </li>
         <li>
+          <Command>dhd</Command> - listen to one of my bands, Desire and Her
+          Drunks
+        </li>
+        <li>
+          <Command>hotet</Command> - see a youtube show with my band HOTET.
+        </li>
+        <li>
           <Command>bourbons</Command> - see a youtube show with my old band The
           Bourbons
         </li>

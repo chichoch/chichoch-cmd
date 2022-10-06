@@ -5,6 +5,16 @@ import Contact from "../components/Contact";
 
 export default function cmdEffect(cmd) {
   switch (cmd.toLowerCase().trim()) {
+    case "hotet":
+      return <Framed src={"https://www.youtube.com/embed/RbP_QvwbVS8"} />;
+    case "dhd":
+      return (
+        <Spotify
+          link={
+            "https://open.spotify.com/embed/artist/2nbXVG0TqBWDsZyLHsT1qG?utm_source=generator"
+          }
+        />
+      );
     case "bourbons":
       return <Framed src={"https://www.youtube.com/embed/Hvem6PD4abY"} />;
     case "chris-bourbon":
@@ -40,6 +50,20 @@ const Framed = (props) => {
       height="400"
       src={props.src}
       frameBorder="0"
+    ></iframe>
+  );
+};
+
+const Spotify = ({ link }) => {
+  return (
+    <iframe
+      title="Spotify"
+      src={link}
+      width="560"
+      height="380"
+      frameBorder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
     ></iframe>
   );
 };
