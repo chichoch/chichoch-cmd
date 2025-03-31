@@ -13,8 +13,6 @@ function App() {
     bottomRef.current.scrollIntoView({ behaviour: "smooth" });
   }
 
-  useEffect(scrollToBottom, [commands]);
-
   function handleSubmit(cmd) {
     if (cmd === "clear") {
       setCommands([]);
@@ -23,9 +21,25 @@ function App() {
     }
   }
 
-  function handleClick() {
-    inputRef.current.focus();
-  }
+  useEffect(scrollToBottom, [commands]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Enter") {
+        if (document.activeElement === inputRef.current) {
+          return;
+        }
+        event.preventDefault();
+        inputRef.current.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  })
+
 
   return (
     <div>
@@ -36,8 +50,7 @@ function App() {
         ))}
         <div ref={bottomRef} />
       </div>
-      <Footer onSubmit={handleSubmit} inputRef={inputRef} />
-      <div className="overlay" onClick={handleClick} />
+      <Footer onSubmit={handleSubmit}  inputRef={inputRef}/>
     </div>
   );
 }
