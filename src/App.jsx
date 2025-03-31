@@ -7,6 +7,7 @@ import cmdEffect from "./utils/cmdHandler";
 function App() {
   const [commands, setCommands] = useState([]);
   const bottomRef = useRef(null);
+  const inputRef = useRef(null);
 
   function scrollToBottom() {
     bottomRef.current.scrollIntoView({ behaviour: "smooth" });
@@ -22,6 +23,10 @@ function App() {
     }
   }
 
+  function handleClick() {
+    inputRef.current.focus();
+  }
+
   return (
     <div>
       <div className="content">
@@ -31,7 +36,8 @@ function App() {
         ))}
         <div ref={bottomRef} />
       </div>
-      <Footer onSubmit={handleSubmit} />
+      <Footer onSubmit={handleSubmit} inputRef={inputRef} />
+      <div className="overlay" onClick={handleClick} />
     </div>
   );
 }

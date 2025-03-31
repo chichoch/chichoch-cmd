@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Footer.css";
 
-export default function Footer(props) {
+export default function Footer({onSubmit, inputRef}) {
   const [cmd, setCmd] = useState("");
 
   function handleOnChange(event) {
@@ -10,7 +10,7 @@ export default function Footer(props) {
   }
 
   function handleSubmit(event) {
-    props.onSubmit(cmd);
+    onSubmit(cmd);
     setCmd("");
     event.preventDefault();
   }
@@ -23,6 +23,7 @@ export default function Footer(props) {
           value={"$> " + cmd}
           onChange={handleOnChange}
           autoFocus
+          ref={inputRef}
         />
       </form>
     </footer>
