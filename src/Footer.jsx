@@ -1,12 +1,44 @@
 import React, { useState } from "react";
 import "./Footer.css";
 
-export default function Footer({onSubmit, inputRef}) {
+const COMMANDS = [
+  "bourbons",
+  "chris-bourbon",
+  "clear",
+  "contact",
+  "dhd",
+  "fhcg",
+  "help",
+  "hotet",
+  "julklappsleksgenerator",
+  "ls",
+  "make-a-line",
+  "sad-benz",
+  "tåhäv",
+];
+
+function getSuggestion(input) {
+  if (!input) return "";
+  const lower = input.toLowerCase();
+  return COMMANDS.find((c) => c.startsWith(lower)) || "";
+}
+
+export default function Footer({ onSubmit, inputRef }) {
   const [cmd, setCmd] = useState("");
 
+  const suggestion = getSuggestion(cmd);
+  const ghostText = suggestion ? suggestion.slice(cmd.length) : "";
+
   function handleOnChange(event) {
-    const cmd = event.target.value;
-    setCmd(cmd.slice(3, cmd.length));
+    const raw = event.target.value;
+    setCmd(raw.slice(3));
+  }
+
+  function handleKeyDown(event) {
+    if (event.key === "Tab" && ghostText) {
+      event.preventDefault();
+      setCmd(suggestion);
+    }
   }
 
   function handleSubmit(event) {
@@ -18,13 +50,22 @@ export default function Footer({onSubmit, inputRef}) {
   return (
     <footer className="footer">
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={"$> " + cmd}
-          onChange={handleOnChange}
-          autoFocus
-          ref={inputRef}
-        />
+        <div className="input-wrapper">
+          <span className="input-ghost">
+            {"$> " + cmd}
+            <span className="ghost-text">{ghostText}</span>
+          </span>
+          <input
+            type="text"
+            value={"$> " + cmd}
+            onChange={handleOnChange}
+            onKeyDown={handleKeyDown}
+            autoFocus
+            ref={inputRef}
+            spellCheck={false}
+            autoComplete="off"
+          />
+        </div>
       </form>
     </footer>
   );

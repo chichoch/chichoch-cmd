@@ -1,7 +1,6 @@
 .footer {
   background-color: grey;
   border-top: 1px, solid, black;
-  text-align: center;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -10,12 +9,42 @@
   margin-right: 4px;
 }
 
-input[type="text"] {
-  background-color: black;
-  color: greenyellow;
-  font-size: 12pt;
-  font-family: monospace;
+.input-wrapper {
+  position: relative;
   margin: 4px 4px;
   width: 99%;
   box-sizing: border-box;
+  background-color: black;
+}
+
+.input-ghost {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 12pt;
+  font-family: monospace;
+  color: transparent;
+  pointer-events: none;
+  white-space: pre;
+  padding: 0;
+  border: 1px solid transparent;
+}
+
+.ghost-text {
+  color: #555;
+}
+
+input[type="text"] {
+  background-color: transparent;
+  color: greenyellow;
+  font-size: 12pt;
+  font-family: monospace;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  outline: none;
+  position: relative;
+  caret-color: greenyellow;
 }
