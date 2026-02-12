@@ -4,6 +4,7 @@ import Contact from "../components/Contact";
 import Framed from "../components/Framed";
 import Spotify from "../components/Spotify";
 import ChrisBourbon from '../components/ChrisBourbon';
+import Location from '../components/Location';
 
 export default function cmdEffect(cmd) {
   switch (cmd.toLowerCase().trim()) {
@@ -29,6 +30,8 @@ export default function cmdEffect(cmd) {
       return <Framed src="https://sad-benz-113db0.netlify.app/" />;
     case "julklappsleksgenerator":
       return <Framed src="https://julklappsleks-generator.netlify.app" />;
+    case "location":
+      return <Location />;
     case "contact":
       return <Contact />;
     case "fhcg":
