@@ -10,7 +10,7 @@ export default function Location() {
       return;
     }
 
-    navigator.geolocation.getCurrentPosition(
+    const watchId = navigator.geolocation.watchPosition(
       (pos) => {
         setPosition({ lat: pos.coords.latitude, lon: pos.coords.longitude });
       },
@@ -19,6 +19,8 @@ export default function Location() {
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
     );
+
+    return () => navigator.geolocation.clearWatch(watchId);
   }, []);
 
   if (error) return <p>{error}</p>;
