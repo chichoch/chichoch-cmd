@@ -35,9 +35,15 @@ function App() {
       }
     };
 
+    const handleFocus = () => {
+      inputRef.current?.focus();
+    };
+
     window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("focus", handleFocus);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("focus", handleFocus);
     };
   })
 
