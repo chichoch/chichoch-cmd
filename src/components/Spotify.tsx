@@ -1,4 +1,4 @@
-export default function Spotify({ link }) {
+export default function Spotify({ link }: { link: string }) {
   return (
     <iframe
       title="Spotify"

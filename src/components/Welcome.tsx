@@ -1,4 +1,4 @@
-import React from "react";
+import type { CSSProperties } from "react";
 import Help from "./Help";
 import AsciiArt from "./AsciiArt";
 
@@ -14,7 +14,7 @@ const Welcome = () => {
   );
 };
 
-const styles = {
+const styles: Record<string, CSSProperties> = {
   title: {
     color: "#00ff41",
     textShadow: "0 0 10px #00ff41, 0 0 20px #003b00",

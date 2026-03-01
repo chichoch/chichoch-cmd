@@ -1,19 +1,20 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import type { ReactNode } from "react";
 import "./App.css";
 import Footer from "./Footer";
 import Welcome from "./components/Welcome";
 import cmdEffect from "./utils/cmdHandler";
 
 function App() {
-  const [commands, setCommands] = useState([]);
-  const bottomRef = useRef(null);
-  const inputRef = useRef(null);
+  const [commands, setCommands] = useState<ReactNode[]>([]);
+  const bottomRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   function scrollToBottom() {
-    bottomRef.current.scrollIntoView({ behaviour: "smooth" });
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }
 
-  function handleSubmit(cmd) {
+  function handleSubmit(cmd: string) {
     if (cmd === "clear") {
       setCommands([]);
     } else {
@@ -24,13 +25,13 @@ function App() {
   useEffect(scrollToBottom, [commands]);
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Enter") {
         if (document.activeElement === inputRef.current) {
           return;
         }
         event.preventDefault();
-        inputRef.current.focus();
+        inputRef.current?.focus();
       }
     };
 

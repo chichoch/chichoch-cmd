@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import type { CSSProperties } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const CHRIS = [
 "                                                                 ",
@@ -38,8 +39,8 @@ const MATRIX_CHARS = "ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹ�
 const AsciiArt = () => {
   const [revealedLines, setRevealedLines] = useState(0);
   const [glitchLine, setGlitchLine] = useState(-1);
-  const [matrixDrops, setMatrixDrops] = useState([]);
-  const containerRef = useRef(null);
+  const [matrixDrops, setMatrixDrops] = useState<{ x: number; y: number; speed: number; char: string }[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (revealedLines < CHRIS.length) {
@@ -81,10 +82,10 @@ const AsciiArt = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const glitchText = (text) => {
+  const glitchText = (text: string) => {
     return text
       .split("")
-      .map((ch) =>
+      .map((ch: string) =>
         Math.random() > 0.5
           ? MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)]
           : ch
@@ -135,7 +136,7 @@ const AsciiArt = () => {
   );
 };
 
-const styles = {
+const styles: Record<string, CSSProperties> = {
   container: {
     position: "relative",
     overflow: "hidden",

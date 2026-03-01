@@ -1,4 +1,3 @@
-import React from "react";
 import "./Contact.css";
 
 export default function Contact() {
@@ -18,7 +17,7 @@ export default function Contact() {
   );
 }
 
-const Link = ({ title, link }) => {
+const Link = ({ title, link }: { title: string; link: string }) => {
   return (
     <a href={link} className="color" target="_blank" rel="noopener noreferrer">
       {title}

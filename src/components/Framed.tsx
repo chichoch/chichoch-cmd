@@ -1,5 +1,5 @@
 
-export default function Framed(props) {
+export default function Framed(props: { src: string }) {
   return (
     <iframe
       style={{ backgroundColor: "fff" }}

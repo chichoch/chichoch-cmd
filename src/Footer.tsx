@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import type { RefObject } from "react";
 import "./Footer.css";
 
 const COMMANDS = [
@@ -17,31 +18,36 @@ const COMMANDS = [
   "tåhäv",
 ];
 
-function getSuggestion(input) {
+function getSuggestion(input: string) {
   if (!input) return "";
   const lower = input.toLowerCase();
   return COMMANDS.find((c) => c.startsWith(lower)) || "";
 }
 
-export default function Footer({ onSubmit, inputRef }) {
+interface FooterProps {
+  onSubmit: (cmd: string) => void;
+  inputRef: RefObject<HTMLInputElement | null>;
+}
+
+export default function Footer({ onSubmit, inputRef }: FooterProps) {
   const [cmd, setCmd] = useState("");
 
   const suggestion = getSuggestion(cmd);
   const ghostText = suggestion ? suggestion.slice(cmd.length) : "";
 
-  function handleOnChange(event) {
+  function handleOnChange(event: React.ChangeEvent<HTMLInputElement>) {
     const raw = event.target.value;
     setCmd(raw.slice(3));
   }
 
-  function handleKeyDown(event) {
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.key === "Tab" && ghostText) {
       event.preventDefault();
       setCmd(suggestion);
     }
   }
 
-  function handleSubmit(event) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     onSubmit(cmd);
     setCmd("");
     event.preventDefault();

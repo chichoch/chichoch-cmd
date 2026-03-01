@@ -1,4 +1,3 @@
-import React from "react";
 import Help from "../components/Help";
 import Contact from "../components/Contact";
 import Framed from "../components/Framed";
@@ -6,7 +5,7 @@ import Spotify from "../components/Spotify";
 import ChrisBourbon from '../components/ChrisBourbon';
 import Location from '../components/Location';
 
-export default function cmdEffect(cmd) {
+export default function cmdEffect(cmd: string) {
   switch (cmd.toLowerCase().trim()) {
     case "hotet":
       return <Framed src={"https://www.youtube.com/embed/RbP_QvwbVS8"} />;
