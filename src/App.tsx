@@ -50,10 +50,11 @@ function App() {
 
   return (
     <div>
+      <div className="focus-overlay" onClick={() => inputRef.current?.focus()} />
       <div className="content">
         {commands.length < 1 ? <Welcome /> : null}
         {commands.map((x, i) => (
-          <div key={i}>{x}</div>
+          <div key={i} style={{ display: "inline-block" }}>{x}</div>
         ))}
         <div ref={bottomRef} />
       </div>
