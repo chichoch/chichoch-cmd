@@ -1,7 +1,7 @@
 import Help from "../components/Help";
 import Contact from "../components/Contact";
 import Framed from "../components/Framed";
-import Spotify from "../components/Spotify";
+import Dhd from "../components/Dhd";
 import ChrisBourbon from '../components/ChrisBourbon';
 import Location from '../components/Location';
 
@@ -10,13 +10,7 @@ export default function cmdEffect(cmd: string) {
     case "hotet":
       return <Framed src={"https://www.youtube.com/embed/RbP_QvwbVS8"} />;
     case "dhd":
-      return (
-        <Spotify
-          link={
-            "https://open.spotify.com/embed/artist/2nbXVG0TqBWDsZyLHsT1qG?utm_source=generator"
-          }
-        />
-      );
+      return <Dhd />;
     case "bourbons":
       return <Framed src={"https://www.youtube.com/embed/Hvem6PD4abY"} />;
     case "chris-bourbon":
