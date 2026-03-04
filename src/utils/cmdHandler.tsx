@@ -4,6 +4,7 @@ import Framed from "../components/Framed";
 import Dhd from "../components/Dhd";
 import ChrisBourbon from '../components/ChrisBourbon';
 import Location from '../components/Location';
+import Which from "../components/Which";
 
 export default function cmdEffect(cmd: string) {
   switch (cmd.toLowerCase().trim()) {
@@ -32,6 +33,8 @@ export default function cmdEffect(cmd: string) {
     case "ls":
     case "help":
       return <Help />;
+    case "which":
+      return <Which />;
     case "":
       return <b>You need to write something... ¯\_(ツ)_/¯</b>;
     default:
