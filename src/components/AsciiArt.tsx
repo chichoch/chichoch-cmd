@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const CHRIS = [
   "                                                                 ",
@@ -32,13 +32,15 @@ const CHRIS = [
   "                       &   &&&&&&&&&&& &&                        ",
   "                                       &                         ",
   "                                                                 ",
-]
+];
 
 const MATRIX_CHARS = "ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ0123456789ABCDEFZ";
 
 const AsciiArt = () => {
   const [glitchLine, setGlitchLine] = useState(-1);
-  const [matrixDrops, setMatrixDrops] = useState<{ x: number; y: number; speed: number; char: string }[]>([]);
+  const [matrixDrops, setMatrixDrops] = useState<
+    { x: number; y: number; speed: number; char: string }[]
+  >([]);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -63,9 +65,10 @@ const AsciiArt = () => {
       setMatrixDrops((prev) =>
         prev.map((drop) => ({
           ...drop,
-          y: drop.y > 22 ? Math.floor(Math.random() * -10) : drop.y + drop.speed,
+          y:
+            drop.y > 22 ? Math.floor(Math.random() * -10) : drop.y + drop.speed,
           char: MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)],
-        }))
+        })),
       );
     }, 150);
     return () => clearInterval(interval);
@@ -77,7 +80,7 @@ const AsciiArt = () => {
       .map((ch: string) =>
         Math.random() > 0.5
           ? MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)]
-          : ch
+          : ch,
       )
       .join("");
   };
@@ -118,9 +121,6 @@ const AsciiArt = () => {
           </div>
         ))}
       </pre>
-      <div style={styles.cursor}>
-        █
-      </div>
     </div>
   );
 };
