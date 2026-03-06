@@ -45,20 +45,24 @@ function App() {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("focus", handleFocus);
     };
-  })
-
+  });
 
   return (
     <div>
-      <div className="focus-overlay" onClick={() => inputRef.current?.focus()} />
+      <div
+        className="focus-overlay"
+        onClick={() => inputRef.current?.focus()}
+      />
       <div className="content">
         {commands.length < 1 ? <Welcome /> : null}
         {commands.map((x, i) => (
-          <div key={i} style={{ display: "inline-block" }}>{x}</div>
+          <div key={i} style={{ display: "inline-block" }}>
+            {x}
+          </div>
         ))}
         <div ref={bottomRef} />
       </div>
-      <Footer onSubmit={handleSubmit}  inputRef={inputRef}/>
+      <Footer onSubmit={handleSubmit} inputRef={inputRef} />
     </div>
   );
 }

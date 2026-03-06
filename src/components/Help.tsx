@@ -35,6 +35,10 @@ const Help = () => {
           game-generator
         </li>
         <li>
+          <Command>chalmerisk</Command> - a game I created in school a looong
+          time ago rewritten as a web app
+        </li>
+        <li>
           <Command>fhcg</Command> - a facebook clone ment to serve the beef.
           Created with React and Firebase.
         </li>

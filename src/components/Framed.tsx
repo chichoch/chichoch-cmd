@@ -1,4 +1,3 @@
-
 export default function Framed(props: { src: string }) {
   return (
     <iframe
@@ -8,5 +7,6 @@ export default function Framed(props: { src: string }) {
       height="400"
       src={props.src}
       frameBorder="0"
-    ></iframe>);
+    ></iframe>
+  );
 }

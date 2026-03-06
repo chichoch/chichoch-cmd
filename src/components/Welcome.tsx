@@ -6,9 +6,7 @@ const Welcome = () => {
   return (
     <div>
       <AsciiArt />
-      <h1 style={styles.title}>
-        Welcome to Christophe's nerdy homepage
-      </h1>
+      <h1 style={styles.title}>Welcome to Christophe's nerdy homepage</h1>
       <Help />
     </div>
   );

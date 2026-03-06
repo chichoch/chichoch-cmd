@@ -172,12 +172,6 @@ const styles: Record<string, CSSProperties> = {
   line: {
     animation: "none",
   },
-  cursor: {
-    textAlign: "center",
-    color: "#00ff41",
-    fontSize: "14px",
-    animation: "blink 1s step-end infinite",
-  },
 };
 
 export default AsciiArt;

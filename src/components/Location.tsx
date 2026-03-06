@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
 export default function Location() {
-  const [position, setPosition] = useState<{ lat: number; lon: number } | null>(null);
+  const [position, setPosition] = useState<{ lat: number; lon: number } | null>(
+    null,
+  );
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -17,7 +19,7 @@ export default function Location() {
       (err) => {
         setError(`Unable to retrieve location: ${err.message}`);
       },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 },
     );
 
     return () => navigator.geolocation.clearWatch(watchId);

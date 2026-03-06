@@ -2,9 +2,10 @@ import Help from "../components/Help";
 import Contact from "../components/Contact";
 import Framed from "../components/Framed";
 import Dhd from "../components/Dhd";
-import ChrisBourbon from '../components/ChrisBourbon';
-import Location from '../components/Location';
+import ChrisBourbon from "../components/ChrisBourbon";
+import Location from "../components/Location";
 import Which from "../components/Which";
+import ChalmeRisk from "../components/ChalmeRisk";
 
 export default function cmdEffect(cmd: string) {
   switch (cmd.toLowerCase().trim()) {
@@ -35,6 +36,8 @@ export default function cmdEffect(cmd: string) {
       return <Help />;
     case "which":
       return <Which />;
+    case "chalmerisk":
+      return <ChalmeRisk />;
     case "":
       return <b>You need to write something... ¯\_(ツ)_/¯</b>;
     default:
