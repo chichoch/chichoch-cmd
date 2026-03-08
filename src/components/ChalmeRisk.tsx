@@ -1,10 +1,10 @@
+import { Command } from "./Command";
+
 export default function ChalmeRisk() {
+  window.open("https://chalmerisk.netlify.app/");
   return (
-    <iframe
-      title="ChalmeRisk"
-      style={{ border: "0", width: "1360px", height: "750px" }}
-      src="https://chalmerisk.netlify.app"
-      seamless
-    ></iframe>
+    <div>
+      <Command>ChalmeRisk</Command> opened in another tab
+    </div>
   );
 }

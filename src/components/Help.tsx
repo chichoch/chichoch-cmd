@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { Command } from "./Command";
 
 const Help = () => {
   return (
@@ -54,10 +54,6 @@ const Help = () => {
       </ul>
     </div>
   );
-};
-
-const Command = ({ children }: { children: ReactNode }) => {
-  return <b style={{ color: "greenyellow" }}>{children}</b>;
 };
 
 export default Help;
