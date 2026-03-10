@@ -1,3 +1,4 @@
+import { COMMANDS } from "../utils/commands";
 import { Command } from "./Command";
 
 const Help = () => {
@@ -6,55 +7,15 @@ const Help = () => {
       <br />
       To navigate the site, use the following commands:
       <ul>
-        <li>
-          <Command>owls</Command> - a game I created based on a song from my
-          band Desire and her Drunks
-        </li>
-        <li>
-          <Command>tåhäv</Command> - stupid site I made to mock my friend Filip
-        </li>
-        <li>
-          <Command>sad-benz</Command> - site with the Curb your Enthusiasm-theme
-          and a animated gif
-        </li>
-        <li>
-          <Command>dhd</Command> - listen to one of my bands, Desire and Her
-          Drunks
-        </li>
-        <li>
-          <Command>hotet</Command> - see a youtube show with my band HOTET.
-        </li>
-        <li>
-          <Command>bourbons</Command> - see a youtube show with my old band The
-          Bourbons
-        </li>
-        <li>
-          <Command>chris-bourbon</Command> - listen to my solo project
-        </li>
-        <li>
-          <Command>make-a-line</Command> - BKD Make-a-line (Made with ELM)
-        </li>
-        <li>
-          <Command>julklappsleksgenerator</Command> - christmas gift
-          game-generator
-        </li>
-        <li>
-          <Command>chalmerisk</Command> - a game I created in school a looong
-          time ago rewritten as a web app
-        </li>
-        <li>
-          <Command>fhcg</Command> - a facebook clone ment to serve the beef.
-          Created with React and Firebase.
-        </li>
-        <li>
-          <Command>clear</Command> - clears the console
-        </li>
-        <li>
-          <Command>help</Command> - shows this
-        </li>
-        <li>
-          <Command>contact</Command> - how to contact me
-        </li>
+        {Object.entries(COMMANDS)
+          .filter(([_, cmd]) => cmd.description)
+          .map(([name, cmd]) => {
+            return (
+              <li>
+                <Command>{name}</Command> - {cmd.description}
+              </li>
+            );
+          })}
       </ul>
     </div>
   );

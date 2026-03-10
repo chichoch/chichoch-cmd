@@ -1,29 +1,12 @@
 import React, { useState } from "react";
 import type { RefObject } from "react";
 import "./Footer.css";
-
-const COMMANDS = [
-  "bourbons",
-  "chris-bourbon",
-  "clear",
-  "contact",
-  "dhd",
-  "fhcg",
-  "help",
-  "hotet",
-  "julklappsleksgenerator",
-  "ls",
-  "make-a-line",
-  "sad-benz",
-  "tåhäv",
-  "chalmerisk",
-  "owls",
-];
+import { COMMANDS } from "./utils/commands";
 
 function getSuggestion(input: string) {
   if (!input) return "";
   const lower = input.toLowerCase();
-  return COMMANDS.find((c) => c.startsWith(lower)) || "";
+  return Object.keys(COMMANDS).find((c) => c.startsWith(lower)) || "";
 }
 
 interface FooterProps {
