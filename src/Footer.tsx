@@ -17,6 +17,7 @@ const COMMANDS = [
   "sad-benz",
   "tåhäv",
   "chalmerisk",
+  "owls",
 ];
 
 function getSuggestion(input: string) {

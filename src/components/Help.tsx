@@ -7,6 +7,10 @@ const Help = () => {
       To navigate the site, use the following commands:
       <ul>
         <li>
+          <Command>owls</Command> - a game I created based on a song from my
+          band Desire and her Drunks
+        </li>
+        <li>
           <Command>tåhäv</Command> - stupid site I made to mock my friend Filip
         </li>
         <li>
