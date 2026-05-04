@@ -1,13 +1,14 @@
 import { ReactNode } from "react";
-import Framed from "../components/Framed";
-import Help from "../components/Help";
+import Bourbons from "../components/Bourbons.tsx";
+import ChalmeRisk from "../components/ChalmeRisk";
+import ChrisBourbon from "../components/ChrisBourbon";
 import Contact from "../components/Contact";
 import Dhd from "../components/Dhd";
-import ChrisBourbon from "../components/ChrisBourbon";
+import Framed from "../components/Framed";
+import Help from "../components/Help";
 import Location from "../components/Location";
-import Which from "../components/Which";
-import ChalmeRisk from "../components/ChalmeRisk";
 import Owls from "../components/Owls.tsx";
+import Which from "../components/Which";
 
 type Command = {
   component: ReactNode | null;
@@ -17,7 +18,7 @@ type Command = {
 export const COMMANDS: Record<string, Command> = {
   bourbons: {
     description: "see a youtube show with my old band The Bourbons",
-    component: <Framed src={"https://www.youtube.com/embed/RbP_QvwbVS8"} />,
+    component: <Bourbons />,
   },
   "chris-bourbon": {
     description: "listen to my solo project",
