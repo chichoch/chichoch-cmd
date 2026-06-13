@@ -9,6 +9,7 @@ import Help from "../components/Help";
 import Location from "../components/Location";
 import Owls from "../components/Owls.tsx";
 import Which from "../components/Which";
+import Listophe from "../components/Listophe.tsx";
 
 type Command = {
   component: ReactNode | null;
@@ -16,6 +17,10 @@ type Command = {
 };
 
 export const COMMANDS: Record<string, Command> = {
+  listophe: {
+    description: "a todo list app which is shareable without authentication",
+    component: <Listophe />,
+  },
   bourbons: {
     description: "see a youtube show with my old band The Bourbons",
     component: <Bourbons />,
